@@ -9,16 +9,22 @@ import { Cell } from './game/cell';
 })
 export class AppComponent {
   title = 'mine';
-  board = new Board(23, 11);
+  public width = 0;
+  public height = 0;
+  board = new Board(this.width, this.height);
+
+  createBoard() {
+    this.board = new Board(this.width, this.height);
+  }
 
   checkCell(cell: Cell) {
     const result = this.board.checkCell(cell);
 
     if (result === 1) {
-      alert('no bomb ' + cell.row + " " + cell.column + "");
+      alert('No Bomb at (' + cell.row + "," + cell.column + ")");
     }
     else if (result === -1) {
-      alert('bomb ' + cell.row + " " + cell.column + "");
+      alert('Bomb at (' + cell.row + "," + cell.column + ")");
       this.board.showBombs();
     }
   }
