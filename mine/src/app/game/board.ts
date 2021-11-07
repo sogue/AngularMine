@@ -18,26 +18,31 @@ export class Board {
         }
     }
     }
-    checkCell(cell:Cell)
+
+    checkCell(cell:Cell) : number
     {
         if(cell.state !== 0 )
         {
-          return;  
+          return 1;  
         }
         else if (cell.mine)
         {
-            this.showCoor(cell);
-
+            return -1;  
         }
         else 
         {
             cell.state = 1;
-            
+            return 1;  
         }
     }
 
-    showCoor(cell:Cell)
-    {
-        console.log(cell.row + " " + cell.column);
+    showBombs() {
+        for (const row of this.cells) {
+          for (const cell of row) {
+            if (cell.state === 0) {
+                cell.state = 1;
+                }
+            }
+        }
     }
 }
