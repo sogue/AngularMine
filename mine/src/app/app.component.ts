@@ -9,7 +9,7 @@ import { Cell } from './game/cell';
 })
 export class AppComponent {
   title = 'mine';
-  board = new Board(10, 10);
+  board = new Board(23, 11);
 
   checkCell(cell: Cell) {
     const result = this.board.checkCell(cell);

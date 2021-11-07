@@ -14,8 +14,7 @@
 <table>
   <tr *ngFor="let row of board.cells; index as y">
     <td *ngFor="let cell of row; index as x" (click)="checkCell(cell)">
-      <div>{{y}}, {{x}}</div>
-      <div>State: {{cell.state}}</div>
+      <div>{{x}}, {{y}}</div>
       <div>Mine: {{cell.mine}}</div>
       <div *ngIf="cell.mine && cell.state === 1">
         <svg style="width:24px;height:24px" viewBox="0 0 24 24">
