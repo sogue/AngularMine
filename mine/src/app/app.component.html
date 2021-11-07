@@ -1,0 +1,13 @@
+<table>
+  <tr *ngFor="let row of board.cells; index as y">
+    <td
+      *ngFor="let cell of row; index as x"
+      (click)="checkCell(cell)"
+    >
+    <div>{{y}}, {{x}}</div>
+    <div>State: {{cell.state}}</div>
+    <div>Mine:  {{cell.mine}}</div>
+  </td>
+  
+  </tr>
+</table>
